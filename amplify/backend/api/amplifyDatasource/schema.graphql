@@ -1,0 +1,5 @@
+type Destinations @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  date: AWSDate
+}

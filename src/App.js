@@ -1,5 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+import Amplify from "aws-amplify";
+import awsconfig from "./aws-exports";
+
+import { DataStore } from "@aws-amplify/datastore";
+import { Destinations } from "./models";
+
+Amplify.configure(awsconfig);
 
 function App() {
   return (
@@ -21,5 +29,12 @@ function App() {
     </div>
   );
 }
+
+await DataStore.save(
+  new Destinations({
+    name: "Lorem ipsum dolor sit amet",
+    date: "1970-01-01Z",
+  })
+);
 
 export default App;
